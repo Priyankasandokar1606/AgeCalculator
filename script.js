@@ -1,0 +1,19 @@
+var showYear = document.getElementById('showYear');
+var showMonth = document.getElementById('showMonth');
+var showDay = document.getElementById('showDay');
+var button = document.getElementById('btnCalculate');
+btnCalculate.onclick=function(){
+    var dateFrom = document.getElementById('date_start').value;
+    var dateTo = document.getElementById('date_To').value;
+    var dateStarting = new Date(dateFrom);
+    var dateEnding = new Date(dateTo);
+    var diff = dateEnding - dateStarting;
+    var years = Math.floor(diff/(365.25*24*60*60*1000));
+    var remaining=Math.floor(diff%(365.25*24*60*60*1000));
+    var months=Math.floor(remaining/((365.25/12)*24*60*60*1000));
+    var remaining=Math.floor(remaining%((365.25/12)*24*60*60*1000));
+    var days=Math.floor(remaining/(24*60*60*1000));
+    showYear.innerHTML=years;
+    showMonth.innerHTML=months;
+    showDay.innerHTML=days;
+}
